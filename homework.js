@@ -192,6 +192,23 @@ function isProductInCart(carts, productId) {
  */
 function addToCart(carts, product, quantity) {
   // 請實作此函式
+  const inCartIndex = carts.findIndex(function(item){
+    return item.product.id === product.id;
+  });
+
+  if (inCartIndex !== -1) { 
+    // 產品已存在，合併數量
+    const updatedCarts = [...carts];
+    updatedCarts[inCartIndex] = {
+      ...updatedCarts[inCartIndex],
+      quantity: updatedCarts[inCartIndex].quantity + quantity
+    };
+    return updatedCarts;
+  } else {
+    // 產品不存在，新增一筆
+    return [...carts, { id: `cart-${Date.now()}`, product, quantity }];
+  } 
+ 
 }
 
 /**
