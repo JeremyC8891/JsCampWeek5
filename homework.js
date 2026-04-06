@@ -160,6 +160,9 @@ function calculateSavings(carts) {
  */
 function calculateCartItemCount(carts) {
   // 請實作此函式
+  return carts.reduce(function(total, item){
+    return total + item.quantity;
+  }, 0);  
 }
 
 /**
