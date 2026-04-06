@@ -106,10 +106,10 @@ function getDiscountRate(product) {
  */
 function getAllCategories(products) {
   // 請實作此函式
-  const categories = products.map(function(item){
-    return item.category;
+  const categories = products.map(function(item){  
+    return item.category;   //取得所有產品分類，得到新陣列
   });
-  return [...new Set(categories)];
+  return [...new Set(categories)]; //使用 Set 去除重複分類，再用...轉回陣列
 }
 
 // ========================================
@@ -123,6 +123,10 @@ function getAllCategories(products) {
  */
 function calculateCartOriginalTotal(carts) {
   // 請實作此函式
+  return carts.reduce(function(total, item){
+    return total + (item.product.origin_price * item.quantity);
+  }, 0);
+
 }
 
 /**
