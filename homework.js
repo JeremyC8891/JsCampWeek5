@@ -173,6 +173,9 @@ function calculateCartItemCount(carts) {
  */
 function isProductInCart(carts, productId) {
   // 請實作此函式
+  return carts.some(function(item){
+    return item.product.id === productId;
+  }); 
 }
 
 // ========================================
