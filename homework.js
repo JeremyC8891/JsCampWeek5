@@ -57,9 +57,11 @@ const orders = [
  */
 function getProductById(products, productId) {
   // 請實作此函式
-  return products.find(product => product.id === productId) || null;
-
+  return products.find(function(item){
+    return item.id === productId}) || null;
 }
+
+
 
 /**
  * 2. 根據分類篩選產品
@@ -69,8 +71,21 @@ function getProductById(products, productId) {
  */
 function getProductsByCategory(products, category) {
   // 請實作此函式
-  
+  return category === '全部' ? products : products.filter(function(item){
+    return item.category === category});
+
 }
+/*
+if (category === '全部') {
+    return products;
+  }
+  
+  // 其餘情況就執行篩選
+  return products.filter(function(item){
+    return item.category === category});
+}
+*/
+
 
 /**
  * 3. 計算產品折扣率
