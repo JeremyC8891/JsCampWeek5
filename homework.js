@@ -106,6 +106,10 @@ function getDiscountRate(product) {
  */
 function getAllCategories(products) {
   // 請實作此函式
+  const categories = products.map(function(item){
+    return item.category;
+  });
+  return [...new Set(categories)];
 }
 
 // ========================================
