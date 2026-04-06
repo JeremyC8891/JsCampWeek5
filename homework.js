@@ -136,6 +136,9 @@ function calculateCartOriginalTotal(carts) {
  */
 function calculateCartTotal(carts) {
   // 請實作此函式
+  return carts.reduce(function(total, item){
+    return total + (item.product.price * item.quantity);
+  }, 0);  
 }
 
 /**
