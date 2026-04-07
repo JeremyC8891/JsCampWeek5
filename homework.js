@@ -286,6 +286,9 @@ function calculateTotalRevenue(orders) {
  */
 function filterOrdersByStatus(orders, isPaid) {
   // 請實作此函式
+  return orders.filter(function(item){
+    return item.paid === isPaid;
+  }); 
 }
 
 /**
