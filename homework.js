@@ -192,15 +192,15 @@ function isProductInCart(carts, productId) {
  */
 function addToCart(carts, product, quantity) {
   // 請實作此函式
-  const inCartIndex = carts.findIndex(function(item){
-    return item.product.id === product.id;
+  const inCartIndex = carts.findIndex(function(item){ 
+    //回傳產品在購物車中的索引，如果找不到回傳 -1
+    return item.product.id === product.id; 
   });
 
   if (inCartIndex !== -1) { 
     // 產品已存在，合併數量
     const updatedCarts = [...carts];
     updatedCarts[inCartIndex] = {
-      ...updatedCarts[inCartIndex],
       quantity: updatedCarts[inCartIndex].quantity + quantity
     };
     return updatedCarts;
@@ -226,7 +226,7 @@ function updateCartItemQuantity(carts, cartId, newQuantity) {
       return item.id !== cartId;
     });
   } else {
-    // 更新數量
+    // 如果購物車ID符合，更新數量；否則保持不變
     return carts.map(function(item){
       if (item.id === cartId) {
         return { ...item, quantity: newQuantity };
